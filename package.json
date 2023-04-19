@@ -9,7 +9,7 @@
         "lint": "next lint",
         "storybook": "storybook dev -p 3001",
         "build-storybook": "storybook build",
-        "tina": "tinacms dev",
+        "tina": "tinacms dev -p 3000",
         "tina-next": "tinacms dev -c \"next dev\"",
         "build-tina-next": "tinacms build && next build",
         "dev": "concurrently \"npm run tina-next\" \"npm run storybook\"",
