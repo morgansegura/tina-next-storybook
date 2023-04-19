@@ -1,7 +1,7 @@
 // [Types]
-import { TBox } from '@lib/components/layout/box/box.types'
+import { TBox } from "@components/elements/box/box.types";
 // [Styles]
-import * as s from '@lib/components/layout/box/box.styled'
+import * as s from "@components/elements/box/box.styled";
 
 export default function Box({
     as,
@@ -21,5 +21,5 @@ export default function Box({
         >
             {children}
         </s.Box>
-    )
+    );
 }

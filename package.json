@@ -5,23 +5,26 @@
     "scripts": {
         "next": "next dev",
         "build-next": "next build",
-        "start": "next start",
+        "start": "tinacms build && next start",
         "lint": "next lint",
         "storybook": "storybook dev -p 3001",
         "build-storybook": "storybook build",
-        "dev": "concurrently \"npm run storybook\" \"npm run next\"",
-        "build": "concurrently \"npm run build-storybook\" \"npm run build-next\""
+        "tina": "tinacms dev",
+        "tina-next": "tinacms dev -c \"next dev\"",
+        "build-tina-next": "tinacms build && next build",
+        "dev": "concurrently \"npm run tina-next\" \"npm run storybook\"",
+        "build": "tinacms build && concurrently \"npm run build-tina-next\" \"npm run build-storybook\""
     },
     "dependencies": {
-        "eslint": "8.38.0",
-        "eslint-config-next": "13.3.0",
         "next": "13.3.0",
         "polished": "^4.2.2",
         "react": "18.2.0",
         "react-dom": "18.2.0",
-        "styled-components": "^5.3.9"
+        "styled-components": "^5.3.9",
+        "tinacms": "^1.4.3"
     },
     "devDependencies": {
+        "@tinacms/cli": "^1.5.2",
         "@storybook/addon-essentials": "^7.0.4",
         "@storybook/addon-interactions": "^7.0.4",
         "@storybook/addon-links": "^7.0.4",
@@ -36,6 +39,8 @@
         "concurrently": "^8.0.1",
         "sass": "^1.62.0",
         "storybook": "^7.0.4",
-        "typescript": "^5.0.4"
+        "typescript": "^5.0.4",
+        "eslint": "8.38.0",
+        "eslint-config-next": "13.3.0"
     }
 }
