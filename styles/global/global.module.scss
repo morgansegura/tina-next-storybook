@@ -1,0 +1,579 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+// @import "fonts/graphik-font";
+@import "/styles/utilities/utilities.module";
+// @import "scaffold";
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    @include base;
+
+    position: relative;
+}
+
+body {
+    background-color: $system-neutral-07;
+    color: $system-neutral-90;
+    transition: background-color 0.3s ease-out;
+}
+
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    @include body;
+
+    font-family: $font-family;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    @include h1;
+}
+
+h2 {
+    @include h2;
+}
+
+h3 {
+    @include h3;
+}
+
+h4 {
+    @include h4;
+}
+
+h5 {
+    @include h5;
+}
+
+label {
+    @include label;
+}
+
+img {
+    width: 100%;
+}
+
+// Base Layout Height
+
+#page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.blocks {
+    flex: 1 0 auto;
+}
+
+// Utility Classes
+
+.contain-xs,
+.contain-sm,
+.contain-md,
+.contain-lg,
+.contain-xl {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.contain-xs {
+    max-width: $contain-xs;
+}
+
+.contain-sm {
+    max-width: $contain-sm;
+}
+
+.contain-md {
+    max-width: $contain-md;
+}
+
+.contain-lg {
+    max-width: $contain-lg;
+}
+
+.contain-xl {
+    max-width: $contain-xl;
+    margin-right: $sp-2;
+    margin-left: $sp-2;
+
+    @include md {
+        margin-right: $sp-5;
+        margin-left: $sp-5;
+    }
+
+    @include xl {
+        margin-right: $sp-14;
+        margin-left: $sp-14;
+    }
+
+    @include xxl {
+        max-width: unset;
+        margin-right: $sp-20;
+        margin-left: $sp-20;
+    }
+
+    @include above($contain-offset) {
+        max-width: calc(#{$contain-xxl} - #{$sp-40});
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.contain-xxl {
+    max-width: $contain-xxl;
+    margin-right: $sp-1;
+    margin-left: $sp-1;
+
+    @include md {
+        margin-right: $sp-3;
+        margin-left: $sp-3;
+    }
+
+    @include xl {
+        margin-right: $sp-6;
+        margin-left: $sp-6;
+    }
+
+    @include xxl {
+        margin-right: $sp-8;
+        margin-left: $sp-8;
+    }
+
+    @include above($contain-offset) {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+// REMOVED .text-light ~ * because it was causing inconsistencies
+.text-light,
+.text-light > * {
+    a {
+        color: $system-neutral-00;
+        text-decoration: none;
+    }
+
+    color: $system-neutral-00;
+}
+
+.radius-circle {
+    border-radius: 50%;
+}
+
+.radius-sm {
+    border-radius: $radius-sm;
+}
+
+.radius-md {
+    border-radius: $radius-md;
+}
+
+.radius-lg {
+    border-radius: $radius-lg;
+}
+
+.shadow-card {
+    @include shadow-card;
+}
+
+.shadow-header {
+    @include shadow-header;
+}
+
+.shadow-form {
+    @include shadow-form;
+}
+
+.shadow-dropdown {
+    @include shadow-dropdown;
+}
+
+a[data-modal] {
+    text-decoration: none;
+}
+
+// Popup Info
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    padding: 40px 33px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s;
+    pointer-events: all;
+    cursor: default;
+
+    &:not(.is-active) {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+// Find a better home
+
+:root {
+    --grid-gutter: #{$sp-2};
+    --lane-gutter: #{$sp-3};
+
+    @include md {
+        --grid-gutter: #{$sp-3};
+        --lane-gutter: #{$sp-8};
+    }
+
+    @include xl {
+        --grid-gutter: #{$sp-4};
+        --lane-gutter: 160px;
+    }
+
+    @include xxl {
+        --grid-gutter: #{$sp-4};
+        --lane-gutter: 224px;
+    }
+
+    @include above($contain-offset) {
+        --grid-gutter: #{$sp-4};
+        --lane-gutter: #{$sp-20};
+    }
+}
+
+.donation-comments-modal {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.subscriptionOpportunity {
+    display: none;
+
+    &.showOpportunity {
+        &:not(.subscriptionOpportunity-desktop-only) {
+            display: block;
+        }
+        @include lg {
+            display: block;
+        }
+    }
+}
+
+.should-adopt-global-content-styles {
+    overflow: hidden;
+    word-wrap: break-word;
+
+    ul,
+    ol,
+    blockquote {
+        margin-left: 32px;
+    }
+
+    blockquote {
+        padding-left: 32px;
+        border-left: solid 2px #ddd;
+    }
+
+    ul,
+    ol {
+        padding-left: 0;
+        list-style: outside;
+        margin-left: 40px;
+        line-height: normal;
+    }
+
+    ul ul {
+        list-style-type: circle;
+    }
+
+    ul ul ul {
+        list-style-type: square;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    li {
+        ul,
+        ol {
+            margin-top: 8px;
+        }
+    }
+
+    li:last-child {
+        margin-bottom: 0;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    blockquote strong {
+        padding-bottom: 12px;
+    }
+
+    blockquote > p {
+        margin: 42px 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol,
+    p {
+        &:not(:last-child) {
+            margin-bottom: 32px;
+        }
+    }
+
+    li {
+        ul,
+        ol {
+            margin-bottom: unset;
+        }
+    }
+
+    strong {
+        margin-bottom: 12px;
+    }
+
+    p > strong {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    i:not(.fas):not(.fab):not(.material-icons),
+    em {
+        font-style: italic;
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
+
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: monospace, monospace;
+        font-size: 1em;
+    }
+
+    a {
+        color: inherit;
+    }
+}

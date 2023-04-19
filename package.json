@@ -1,22 +1,41 @@
 {
-  "name": "bpnext13",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.35",
-    "@types/react-dom": "18.0.11",
-    "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
-    "next": "13.3.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.0.4"
-  }
+    "name": "bpnext13",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "next": "next dev",
+        "build-next": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "storybook": "storybook dev -p 3001",
+        "build-storybook": "storybook build",
+        "dev": "concurrently \"npm run storybook\" \"npm run next\"",
+        "build": "concurrently \"npm run build-storybook\" \"npm run build-next\""
+    },
+    "dependencies": {
+        "eslint": "8.38.0",
+        "eslint-config-next": "13.3.0",
+        "next": "13.3.0",
+        "polished": "^4.2.2",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "styled-components": "^5.3.9"
+    },
+    "devDependencies": {
+        "@storybook/addon-essentials": "^7.0.4",
+        "@storybook/addon-interactions": "^7.0.4",
+        "@storybook/addon-links": "^7.0.4",
+        "@storybook/blocks": "^7.0.4",
+        "@storybook/nextjs": "^7.0.4",
+        "@storybook/react": "^7.0.4",
+        "@storybook/testing-library": "^0.0.14-next.2",
+        "@types/node": "^18",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@types/styled-components": "^5.1.26",
+        "concurrently": "^8.0.1",
+        "sass": "^1.62.0",
+        "storybook": "^7.0.4",
+        "typescript": "^5.0.4"
+    }
 }
