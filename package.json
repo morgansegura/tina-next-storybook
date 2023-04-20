@@ -3,17 +3,15 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
+        "lint": "next lint",
         "next": "next dev",
         "build-next": "next build",
-        "start": "tinacms build && next start",
-        "lint": "next lint",
         "storybook": "storybook dev -p 3001",
         "build-storybook": "storybook build",
-        "tina": "tinacms dev -p 3000",
-        "tina-next": "tinacms dev -c \"next dev\"",
-        "build-tina-next": "tinacms build && next build",
-        "dev": "concurrently \"npm run tina-next\" \"npm run storybook\"",
-        "build": "tinacms build && concurrently \"npm run build-tina-next\" \"npm run build-storybook\""
+        "tina": "tinacms dev",
+        "build-tina": "tinacms build",
+        "dev": "concurrently \"npm run tina\" \"npm run next\" \"npm run storybook\"",
+        "build": "concurrently \"npm run build-tina\" \"npm run build-next\" \"npm run build-storybook\""
     },
     "dependencies": {
         "next": "13.3.0",
@@ -21,10 +19,9 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "styled-components": "^5.3.9",
-        "tinacms": "^1.4.3"
+        "tinacms": "^1.4.6"
     },
     "devDependencies": {
-        "@tinacms/cli": "^1.5.2",
         "@storybook/addon-essentials": "^7.0.4",
         "@storybook/addon-interactions": "^7.0.4",
         "@storybook/addon-links": "^7.0.4",
@@ -32,15 +29,16 @@
         "@storybook/nextjs": "^7.0.4",
         "@storybook/react": "^7.0.4",
         "@storybook/testing-library": "^0.0.14-next.2",
+        "@tinacms/cli": "^1.5.6",
         "@types/node": "^18",
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "@types/styled-components": "^5.1.26",
         "concurrently": "^8.0.1",
+        "eslint": "8.38.0",
+        "eslint-config-next": "13.3.0",
         "sass": "^1.62.0",
         "storybook": "^7.0.4",
-        "typescript": "^5.0.4",
-        "eslint": "8.38.0",
-        "eslint-config-next": "13.3.0"
+        "typescript": "^5.0.4"
     }
 }

@@ -3287,7 +3287,7 @@
     webfontloader "1.6.28"
     xstate "4.32.1"
 
-"@tinacms/cli@^1.5.2":
+"@tinacms/cli@^1.5.6":
   version "1.5.6"
   resolved "https://registry.npmjs.org/@tinacms/cli/-/cli-1.5.6.tgz"
   integrity sha512-xg8iPabC8qzN7//BKl9hm9ofqCZGZeel7uai2lSj8XoZNgOPoeJm8eyQ5zSNs14AVpfTDTCQ9+0Id/MNxV+r5w==
@@ -13857,7 +13857,7 @@ through2@^2.0.3:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-tinacms@^1.4.3, tinacms@1.4.6:
+tinacms@^1.4.6, tinacms@1.4.6:
   version "1.4.6"
   resolved "https://registry.npmjs.org/tinacms/-/tinacms-1.4.6.tgz"
   integrity sha512-PgCCkHDhmKTtUZEiHO50alPAc5k7/AuyBZDzlmAE64cWJQXlw5+kb/Tni4cvgmn15z/GVwjg7GQQNTwkVRtRKQ==

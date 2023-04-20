@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+
 import Link from "next/link";
 // [Utils]
 import { getItemByIdFromData } from "@utils/helpers";
@@ -20,6 +20,7 @@ import SearchIcon from "@components/elements/icons/search/search.component";
 import ChevronIcon from "@components/elements/icons/chevron/chevron.component";
 import ReaderIcon from "@components/elements/icons/reader/reader.component";
 import ArrowIcon from "@components/elements/icons/arrow/arrow.component";
+import Image from "@components/elements/image/image.component";
 //[Styled]
 import * as s from "@components/layout/header/header.styled";
 // [Types]
@@ -39,7 +40,7 @@ const NAV_ITEMS: TMenuItems[] = [
             icon: <ArrowIcon direction="right" />,
             image: {
                 alt: "Isaiah 61",
-                src: "https://ik.imagekit.io/bpweb1/web/media/Isaiah%2061/isaiah-61_rich.jpg?tr=q-65",
+                src: "Isaiah%2061/isaiah-61_rich.jpg",
             },
             path: "/explore/video/isaiah-61",
             title: "Isaiah 61",
@@ -84,7 +85,7 @@ const NAV_ITEMS: TMenuItems[] = [
             icon: <ArrowIcon direction="right" />,
             image: {
                 alt: "Isaiah 61",
-                src: "https://ik.imagekit.io/bpweb1/web/media/Isaiah%2061/isaiah-61_rich.jpg?tr=q-65",
+                src: "Isaiah%2061/isaiah-61_rich.jpg",
             },
             path: "/explore/video/isaiah-61",
             title: "Isaiah 61",
@@ -129,7 +130,7 @@ const NAV_ITEMS: TMenuItems[] = [
             icon: <ArrowIcon direction="right" />,
             image: {
                 alt: "Isaiah 61",
-                src: "https://ik.imagekit.io/bpweb1/web/media/Isaiah%2061/isaiah-61_rich.jpg?tr=q-65",
+                src: "Isaiah%2061/isaiah-61_rich.jpg",
             },
             path: "/explore/video/isaiah-61",
             title: "Isaiah 61",
@@ -277,9 +278,10 @@ function DropdownPanel({ id, data }: IDropdownPanel) {
                 </s.NavMenuImageContent>
                 {item.cta?.image && (
                     <Image
+                        width={392}
+                        quality={65}
                         src={item.cta.image.src}
                         alt={item.cta.image.alt}
-                        fill
                     />
                 )}
             </s.NavMenuImage>
