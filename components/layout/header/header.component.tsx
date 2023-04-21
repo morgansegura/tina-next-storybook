@@ -12,7 +12,10 @@ import Logo from "@components/elements/logo/logo.component";
 import Avatar from "@components/elements/avatar/avatar.component";
 import Button from "@components/elements/button/button.component";
 import PlayIcon from "@components/elements/icons/play/play.component";
-import DropdownMenu from "@components/elements/dropdown-menu/dropdown-menu.component";
+import DropdownMenu, {
+    Selector,
+    MenuPanel,
+} from "@components/elements/dropdown-menu/dropdown-menu.component";
 // [Icons]
 import HamburgerIcon from "@components/elements/icons/hamburger/hamburger.component";
 import GlobeIcon from "@components/elements/icons/globe/globe.component";
@@ -41,6 +44,7 @@ const NAV_ITEMS: TMenuItems[] = [
             image: {
                 alt: "Isaiah 61",
                 src: "Isaiah%2061/isaiah-61_rich.jpg",
+                type: "Video",
             },
             path: "/explore/video/isaiah-61",
             title: "Isaiah 61",
@@ -86,6 +90,7 @@ const NAV_ITEMS: TMenuItems[] = [
             image: {
                 alt: "Isaiah 61",
                 src: "Isaiah%2061/isaiah-61_rich.jpg",
+                type: "Video",
             },
             path: "/explore/video/isaiah-61",
             title: "Isaiah 61",
@@ -131,6 +136,7 @@ const NAV_ITEMS: TMenuItems[] = [
             image: {
                 alt: "Isaiah 61",
                 src: "Isaiah%2061/isaiah-61_rich.jpg",
+                type: "Video",
             },
             path: "/explore/video/isaiah-61",
             title: "Isaiah 61",
@@ -195,43 +201,38 @@ export function NavMenu() {
 
     return (
         <s.NavMenu>
-            <s.NavItem>
-                <DropdownMenu
-                    selector={watchMenuData.label}
-                    menu={
-                        <DropdownPanel
-                            id={watchMenuData.id}
-                            data={watchMenuData}
-                        />
-                    }
+            <DropdownMenu>
+                <s.NavItem>
+                    <Selector icon={<ChevronIcon />}>
+                        {watchMenuData.label}
+                    </Selector>
+                </s.NavItem>
+
+                <DropdownPanel id={watchMenuData.id} data={watchMenuData} />
+            </DropdownMenu>
+            <DropdownMenu>
+                <s.NavItem>
+                    <Selector icon={<ChevronIcon />}>
+                        {resourcesMenuData.label}
+                    </Selector>
+                </s.NavItem>
+                <DropdownPanel
+                    id={resourcesMenuData.id}
+                    data={resourcesMenuData}
                 />
-                <ChevronIcon />
-            </s.NavItem>
-            <s.NavItem>
-                <DropdownMenu
-                    selector={resourcesMenuData.label}
-                    menu={
-                        <DropdownPanel
-                            id={resourcesMenuData.id}
-                            data={resourcesMenuData}
-                        />
-                    }
-                />
-                <ChevronIcon />
-            </s.NavItem>
+            </DropdownMenu>
+
             <s.NavItem>{classroomMenuData.label}</s.NavItem>
-            <s.NavItem>
-                <DropdownMenu
-                    selector={aboutMenuData.label}
-                    menu={
-                        <DropdownPanel
-                            id={aboutMenuData.id}
-                            data={aboutMenuData}
-                        />
-                    }
-                />
-                <ChevronIcon />
-            </s.NavItem>
+
+            <DropdownMenu>
+                <s.NavItem>
+                    <Selector icon={<ChevronIcon />}>
+                        {aboutMenuData.label}
+                    </Selector>
+                </s.NavItem>
+                <DropdownPanel id={aboutMenuData.id} data={aboutMenuData} />
+            </DropdownMenu>
+
             <s.NavItem>{giveMenuData.label}</s.NavItem>
         </s.NavMenu>
     );
@@ -241,51 +242,57 @@ function DropdownPanel({ id, data }: IDropdownPanel) {
     const item = data;
 
     return (
-        <s.NavMenuPanel>
-            <s.NavMenuLinks>
-                {item.submenu &&
-                    item.submenu?.map(({ path, label }: IMenuChildren) => (
-                        <s.NavItem key={path}>
-                            <Link href={path}>{label}</Link>
-                        </s.NavItem>
-                    ))}
-                <s.NavMenuLinkDivider />
-                {item.all && (
-                    <Link href={item.all.path}>
-                        <s.NavMenuAllLink>
-                            {item.all.label} {item.all.icon}
-                        </s.NavMenuAllLink>
-                    </Link>
-                )}
-            </s.NavMenuLinks>
-            <s.NavMenuImage>
-                <s.NavMenuImageContent>
-                    {item.cta?.subtitle && (
-                        <s.NavMenuImageSubtitle>
-                            {item.cta.subtitle}
-                        </s.NavMenuImageSubtitle>
+        <MenuPanel>
+            <>
+                <s.NavMenuLinks>
+                    {item.submenu &&
+                        item.submenu?.map(({ path, label }: IMenuChildren) => (
+                            <s.NavItem key={path}>
+                                <Link href={path}>{label}</Link>
+                            </s.NavItem>
+                        ))}
+                    <s.NavMenuLinkDivider />
+                    {item.all && (
+                        <Link href={item.all.path}>
+                            <s.NavMenuAllLink>
+                                {item.all.label} {item.all.icon}
+                            </s.NavMenuAllLink>
+                        </Link>
                     )}
-                    {item.cta?.title && (
-                        <s.NavMenuImageTitle>
-                            {item.cta.title}
-                        </s.NavMenuImageTitle>
+                </s.NavMenuLinks>
+                <s.NavMenuImage>
+                    <s.NavMenuImageContent>
+                        {item.cta?.subtitle && (
+                            <s.NavMenuImageSubtitle>
+                                {item.cta.subtitle}
+                            </s.NavMenuImageSubtitle>
+                        )}
+                        {item.cta?.title && (
+                            <s.NavMenuImageTitle>
+                                {item.cta.title}
+                            </s.NavMenuImageTitle>
+                        )}
+                    </s.NavMenuImageContent>
+                    {item.cta?.image && (
+                        <>
+                            <Image
+                                width={392}
+                                quality={65}
+                                src={item.cta.image.src}
+                                alt={item.cta.image.alt}
+                            />
+                            {item.cta?.image.type && (
+                                <s.NavMenuImagePlayButton>
+                                    <Button>
+                                        <PlayIcon />
+                                    </Button>
+                                </s.NavMenuImagePlayButton>
+                            )}
+                        </>
                     )}
-                    <s.NavMenuImagePlayButton>
-                        <Button>
-                            <PlayIcon />
-                        </Button>
-                    </s.NavMenuImagePlayButton>
-                </s.NavMenuImageContent>
-                {item.cta?.image && (
-                    <Image
-                        width={392}
-                        quality={65}
-                        src={item.cta.image.src}
-                        alt={item.cta.image.alt}
-                    />
-                )}
-            </s.NavMenuImage>
-        </s.NavMenuPanel>
+                </s.NavMenuImage>
+            </>
+        </MenuPanel>
     );
 }
 

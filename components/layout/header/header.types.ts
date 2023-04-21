@@ -17,6 +17,7 @@ export interface IMenuCta {
     image?: {
         alt: string;
         src: string;
+        type?: string;
     };
     path?: string;
     title?: string;

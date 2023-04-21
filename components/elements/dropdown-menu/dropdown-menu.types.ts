@@ -1,7 +1,14 @@
 import { ReactNode } from "react";
 
 export interface IDropdownMenu {
-    selector: ReactNode;
-    menu: ReactNode;
+    children: ReactNode;
+}
+
+export interface ISelector {
+    children: ReactNode;
+    icon: ReactNode;
+}
+export interface IMenu {
     as?: any;
+    children: ReactNode;
 }

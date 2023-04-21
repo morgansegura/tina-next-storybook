@@ -13,16 +13,12 @@ import {
     TextSvg,
     TextSvgPath,
 } from "@components/elements/logo/logo.styled";
+import { MenuItem, MenuDivider } from "@components/elements/menu/menu.styled";
+
 import {
-    Menu,
-    MenuItem,
-    MenuDivider,
-    MenuImage,
-    MenuImageContent,
-    MenuImageSubtitle,
-    MenuImageTitle,
-} from "@components/elements/menu/menu.styled";
-import { MenuPanel } from "@components/elements/dropdown-menu/dropdown-menu.styled";
+    Selector,
+    MenuPanel,
+} from "@components/elements/dropdown-menu/dropdown-menu.styled";
 
 export const Wrapper = styled.div`
     position: sticky;
@@ -146,6 +142,7 @@ export const NavItem = styled.div`
     display: flex;
     align-items: center;
     text-decoration: none;
+    user-select: none;
     cursor: pointer;
 
     ${({ selectable }) =>
@@ -156,89 +153,30 @@ export const NavItem = styled.div`
               `
             : css``}
     transition: fill 0.3s ease-out, color 0.3s ease-out;
+
+    ${Selector} {
+        display: flex;
+        align-items: center;
+        border: 1px solid red;
+    }
 `;
 
 NavItem.defaultProps = {
     selectable: true,
 };
 
-export const HeaderMenuDropdown = styled(Menu)`
-    z-index: 1;
-    display: grid;
-    column-gap: ${sp[16]};
-    grid-template-columns: 1fr 1fr;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: ${colors.white};
-    padding: ${sp[6]};
-    min-width: 867px;
-    min-height: 440px;
-    border-radius: ${sp[4]};
-    filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
-    box-shadow: 0px 4px 15px rgba("black", 0.15);
-
-    &::before {
-        content: "";
-        position: absolute;
-        z-index: 0;
-        user-select: none;
-        pointer-events: none;
-        top: 0;
-        left: 50%;
-        width: 50px;
-        height: 50px;
-        background-color: ${colors.white};
-        clip-path: polygon(
-            100% 0%,
-            75% 50%,
-            100% 100%,
-            25% 100%,
-            0% 50%,
-            25% 0%
-        );
-        filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
-        transition: transform 0.9s ease-out;
-        transform: rotate(90deg) translateX(-12px) translateY(calc(-50% + 50px));
-    }
-
-    ${MenuImage} {
-        position: relative;
-        width: 392px;
-        height: 392px;
-        border-radius: ${sp[3]};
-        background-color: ${colors.black};
-
-        &:before {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-
-            content: "";
-            background-image: linear-gradient(
-                0deg,
-                rgba(1, 1, 1, 0.5) 10.57%,
-                rgba(1, 1, 1, 0) 72.42%
-            );
-        }
-    }
-    ${MenuImageContent} {
-        position: absolute;
-        bottom: 0;
-    }
-`;
-
 export const NavMenu = styled.nav`
     display: flex;
     position: relative;
 
-    ${NavItem} {
-        ${fontSizing("16px", "24px", 700)}
-
+    div {
         &:not(:first-child) {
             margin-left: ${sp[8]};
         }
+    }
+
+    ${NavItem} {
+        ${fontSizing("16px", "24px", 700)}
 
         svg {
             margin-top: 3px;
@@ -253,61 +191,8 @@ export const NavMenu = styled.nav`
 NavMenu.defaultProps = {};
 
 export const NavMenuPanel = styled.div`
-    position: fixed;
-    z-index: 3000;
-    top: 90px;
-    left: 50%;
-
-    display: grid;
-    grid-template-columns: 1fr 392px;
-    column-gap: ${sp[16]};
-    background-color: ${colors.white};
-    border-radius: ${sp[4]};
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 867px;
-    padding: ${sp[6]};
-    transform: translateX(-50%);
-
-    &:before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        user-select: none;
-        pointer-events: none;
-        top: 0;
-        left: 0;
-        width: 50px;
-        height: 50px;
-        background-color: ${colors.white};
-        clip-path: polygon(
-            100% 0%,
-            75% 50%,
-            100% 100%,
-            25% 100%,
-            0% 50%,
-            25% 0%
-        );
-        filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
-        /* bos-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); */
-        transform: rotate(90deg) translateX(-13px) translateY(-145px);
-        transition: transform 0.9s ease-out;
+    ${MenuPanel} {
     }
-
-    ${({ active }) =>
-        active
-            ? css`
-                  opacity: 1;
-                  user-select: none;
-                  pointer-events: none;
-                  z-index: 1;
-              `
-            : css`
-                  /* opacity: 0;
-                  user-select: none;
-                  pointer-events: none;
-                  z-index: -50; */
-              `}
 `;
 
 NavMenu.defaultProps = {
@@ -394,8 +279,8 @@ NavMenuAllLink.defaultProps = {};
 
 export const NavMenuImagePlayButton = styled.div`
     position: absolute;
-    top: 50%;
-    left: 50%;
+    align-self: center;
+    justify-self: center;
     display: grid;
     align-items: center;
     justify-content: center;
@@ -403,7 +288,6 @@ export const NavMenuImagePlayButton = styled.div`
     width: ${sp[16]};
     height: ${sp[16]};
     background-color: ${colors.white};
-    transform: translate(-50%);
     transition: opacity 0.3s ease-out;
 
     svg {
