@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { rgba } from "polished";
 // [Config Defaults]
 import { colors } from "@styles/colors/colors.config";
@@ -9,8 +9,18 @@ export const Menu = styled.div`
 
 Menu.defaultProps = {};
 
-export const MenuItem = styled.div``;
-MenuItem.defaultProps = {};
+export const MenuItem = styled.div`
+    ${({ selectable }) =>
+        !selectable
+            ? css`
+                  user-select: none;
+                  pointer-events: none;
+              `
+            : css``}
+`;
+MenuItem.defaultProps = {
+    selectable: true,
+};
 
 export const MenuContent = styled.div``;
 MenuContent.defaultProps = {};

@@ -7,6 +7,7 @@ import Header from "@components/layout/header/header.component";
 import * as s from "@components/layout/default-layout/default-layout.styled";
 // [Types]
 import { IDefaultLayout } from "@components/layout/default-layout/default-layout.types";
+import { IUser } from "types/user.types";
 
 export default function DefaultLayout({
     children,
@@ -22,10 +23,20 @@ export default function DefaultLayout({
             ? "fade-in"
             : ``;
 
+    const avatar = {
+        image: { src: "/v5/avatar/avatar-nogen4.jpeg", alt: "Snake Avatar" },
+        // image: { src: "", alt: "Snake Avatar" },
+    };
+
+    const user: IUser = {
+        preferences: { avatar },
+        authenticated: false,
+    };
+
     return (
         <Seo title={title} description={description}>
             <s.Wrapper>
-                <Header user={undefined} />
+                <Header user={user} />
                 <s.Main animateScrollDirection={scrolling}>
                     <s.Contain>{children}</s.Contain>
                 </s.Main>

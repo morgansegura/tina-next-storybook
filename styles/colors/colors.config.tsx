@@ -1,6 +1,7 @@
 import { IColors } from "@styles/colors/colors.types";
 
 export const colors: IColors = {
+    grey: "#1b1b1b",
     black: "#181d36",
     ebony: "#191a1b",
     white: "#ffffff",
@@ -8,7 +9,7 @@ export const colors: IColors = {
 
     neutral50: "#f9fafc",
     neutral60: "#f6f8fa",
-    neutral70: "#f5f5f5",
+    neutral70: "#f6f6f6",
     neutral80: "#f0f2f5",
     neutral90: "#eceff3",
     neutral100: "#e4e8ed",

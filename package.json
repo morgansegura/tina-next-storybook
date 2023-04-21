@@ -4,14 +4,14 @@
     "private": true,
     "scripts": {
         "lint": "next lint",
-        "next": "next dev",
-        "build-next": "next build",
-        "storybook": "storybook dev -p 3001",
-        "build-storybook": "storybook build",
-        "tina": "tinacms dev",
-        "build-tina": "tinacms build",
-        "dev": "concurrently \"npm run tina\" \"npm run next\" \"npm run storybook\"",
-        "build": "concurrently \"npm run build-tina\" \"npm run build-next\" \"npm run build-storybook\""
+        "dev:tina": "tinacms dev",
+        "dev:next": "next dev",
+        "dev:storybook": "storybook dev -p 3001",
+        "build:tina": "tinacms build",
+        "build:next": "next build",
+        "build:storybook": "storybook build",
+        "dev": "concurrently \"npm run dev:tina\" \"npm run dev:next\" \"npm run dev:storybook\"",
+        "build": "concurrently \"npm run build:tina\" \"npm run build:next\" \"npm run build:storybook\""
     },
     "dependencies": {
         "next": "13.3.0",

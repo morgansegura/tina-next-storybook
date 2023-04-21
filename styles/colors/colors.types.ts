@@ -1,4 +1,5 @@
 export interface IColors {
+    grey: string;
     black: string;
     ebony: string;
     white: string;
