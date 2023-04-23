@@ -5,6 +5,7 @@ import { sp } from "@styles/spacing";
 
 import { MenuDivider, MenuItem } from "@components/elements/menu/menu.styled";
 import { minwidth, screens } from "@styles/screens/screens.config";
+import { Avatar } from "@components/elements/avatar/avatar.styled";
 
 export const UserMenu = styled.nav`
     display: flex;
@@ -36,6 +37,18 @@ export const UserMenuNavItem = styled(MenuItem)`
     &:hover {
         opacity: 0.5;
         transition: opacity 0.3s ease-out;
+    }
+
+    ${Avatar} {
+        &:before {
+            content: "";
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 9999px;
+            position: absolute;
+        }
     }
 `;
 

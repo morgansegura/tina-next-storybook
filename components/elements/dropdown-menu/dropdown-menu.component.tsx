@@ -12,49 +12,58 @@ import {
 } from "@components/elements/dropdown-menu/dropdown-menu.types";
 
 export const DropdownContext = createContext<
-    [active: boolean, setActive: Function, x: number, setX: Function]
->([false, Function, 0, Function]);
+    [
+        active: boolean,
+        setActive: Function,
+        x: number,
+        setX: Function,
+        width: number,
+        setWidth: Function
+    ]
+>([false, Function, 0, Function, 0, Function]);
 
 export default function DropdownMenu({ children }: IDropdownMenu) {
     const [active, setActive] = useState<boolean>(false);
     const [x, setX] = useState<number>(0);
+    const [width, setWidth] = useState<number>(0);
 
     return (
-        <DropdownContext.Provider value={[active, setActive, x, setX]}>
+        <DropdownContext.Provider
+            value={[active, setActive, x, setX, width, setWidth]}
+        >
             {children}
         </DropdownContext.Provider>
     );
 }
 
-export function Selector({ children, icon }: ISelector) {
+export function Selector({ children, icon, rotate }: ISelector) {
     const selectorRef = useRef<any>(null);
-    const [active, setActive, x, setX] = useContext(DropdownContext);
+    const [active, setActive, x, setX, width, setWidth] =
+        useContext(DropdownContext);
 
-    useEffect(() => {
-        const dropdownWidth = 867 / 2;
+    useClickAway(selectorRef, (e: any) => {
+        setActive(false);
+    });
+
+    const getSelectorPosition = () => {
         const selectorWidth =
             selectorRef.current?.getBoundingClientRect().width / 2;
         const selectorOffset =
             selectorRef.current?.getBoundingClientRect().left - selectorWidth;
-        const xPos = selectorOffset - dropdownWidth;
 
-        setX(xPos);
+        setX(selectorOffset);
+        setWidth(selectorWidth);
+    };
+
+    useEffect(() => {
+        getSelectorPosition();
     }, []);
 
     useEffect(() => {
-        const getPosition = () => {
-            const dropdownWidth = 867 / 2;
-            const selectorWidth =
-                selectorRef.current?.getBoundingClientRect().width / 2;
-            const selectorOffset =
-                selectorRef.current?.getBoundingClientRect().left -
-                selectorWidth;
-            const xPos = selectorOffset - dropdownWidth;
-            setX(xPos);
-        };
-        window.addEventListener("resize", getPosition);
+        window.addEventListener("resize", getSelectorPosition, true);
 
-        return () => window.removeEventListener("resize", getPosition, true);
+        return () =>
+            window.removeEventListener("resize", getSelectorPosition, true);
     }, []);
 
     const handleActiveState = () => {
@@ -65,31 +74,23 @@ export function Selector({ children, icon }: ISelector) {
         <s.Selector
             ref={selectorRef}
             onClick={handleActiveState}
-            active={active}
+            properties={{ active, rotate }}
         >
             {children} {icon}
         </s.Selector>
     );
 }
-export function MenuPanel({ as, children }: IMenu) {
-    const dropdownRef = useRef<any>(null);
-    const [active, setActive, x, setX] = useContext(DropdownContext);
-
-    useClickAway(dropdownRef, (e: any) => {
-        setActive(false);
-    });
+export function MenuPanel({ as, children, position }: IMenu) {
+    const panelRef = useRef<any>(null);
+    const [active, setActive, x, setX, width, setWidth] =
+        useContext(DropdownContext);
 
     // useEffect(() => {
-    //     const handleCloseOnClickOutside = (e: { target: any }) => {
-    //         if (dropdownRef?.current?.contains(e.target)) {
-    //             active ? setActive(false) : setActive(true);
-    //         } else if (
-    //             dropdownRef.current &&
-    //             !dropdownRef.current.contains(e.target)
-    //         ) {
+    //     const handleCloseOnClickOutside = (e: any) => {
+    //         if (panelRef?.current && !panelRef.current.contains(e.target)) {
     //             setActive(false);
+    //             console.log("Arrrg");
     //         }
-    //         console.log(dropdownRef.current.contains(e.target));
     //     };
 
     //     document.addEventListener("click", handleCloseOnClickOutside, true);
@@ -100,7 +101,7 @@ export function MenuPanel({ as, children }: IMenu) {
     //             handleCloseOnClickOutside,
     //             true
     //         );
-    // }, []);
+    // }, [panelRef]);
 
     useEffect(() => {
         const keyPressBlur = () => {
@@ -129,10 +130,9 @@ export function MenuPanel({ as, children }: IMenu) {
         <Portal>
             <s.MenuPanel
                 as={as}
-                ref={dropdownRef}
-                active={active}
+                ref={panelRef}
                 setActive={setActive}
-                xPos={x}
+                properties={{ active, posX: x, position, width }}
             >
                 {children}
             </s.MenuPanel>

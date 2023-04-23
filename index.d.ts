@@ -8,5 +8,6 @@ declare module "react" {
         selectable?: boolean;
         active?: boolean | string;
         as?: (as) => as;
+        properties?: any;
     }
 }

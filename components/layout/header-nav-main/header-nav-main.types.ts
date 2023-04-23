@@ -33,4 +33,5 @@ export type TMenuItems = {
 export interface IDropdownPanel {
     id: string | number;
     data: TMenuItems;
+    position?: "center" | "right" | "left";
 }

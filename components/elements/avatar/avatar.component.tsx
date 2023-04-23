@@ -8,21 +8,24 @@ import * as s from "@components/elements/avatar/avatar.styled";
 import { IAvatar } from "@components/elements/avatar/avatar.types";
 import UserIcon from "../icons/user/user.component";
 
-export default function Avatar({ size, user }: IAvatar) {
+export default function Avatar({ properties, user }: IAvatar) {
     const { avatar } = user;
 
     return avatar && avatar?.image?.src ? (
-        <s.Avatar size={size} user={avatar}>
+        <s.Avatar
+            properties={{ emboss: true, size: properties?.size }}
+            user={avatar}
+        >
             <Image
-                width={size}
-                height={size}
+                width={properties?.size || 32}
+                height={properties?.size || 32}
                 src={avatar.image.src}
                 alt={avatar.image?.alt}
                 quality={100}
             />
         </s.Avatar>
     ) : (
-        <s.Avatar size={size} user={avatar}>
+        <s.Avatar user={avatar} properties={{ size: properties?.size }}>
             <UserIcon />
         </s.Avatar>
     );

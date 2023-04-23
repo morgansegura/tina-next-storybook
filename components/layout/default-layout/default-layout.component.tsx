@@ -30,7 +30,7 @@ export default function DefaultLayout({
 
     const user: IUser = {
         preferences: { avatar },
-        authenticated: false,
+        authenticated: true,
     };
 
     return (

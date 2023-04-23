@@ -10,31 +10,30 @@ DropdownMenu.defaultProps = {
 };
 
 export const Selector = styled(({ as }) => as)`
-    ${({ active }) =>
-        active
-            ? css`
+    ${({ properties }) => css`
+        ${properties.active && properties.rotate
+            ? `
                   svg {
                       transform: rotate(-180deg);
                   }
               `
-            : css`
+            : `
                   svg {
                       transform: rotate(0);
                   }
               `}
+    `};
 `;
 
 Selector.defaultProps = {
     as: "div",
-    active: false,
+    properties: { active: false, rotate: true },
 };
 
 export const MenuPanel = styled(({ as }) => as)`
     position: fixed;
     z-index: 3000;
     top: 0;
-    transform-origin: top left;
-
     display: grid;
     grid-template-columns: 1fr 392px;
     column-gap: ${sp[16]};
@@ -53,7 +52,6 @@ export const MenuPanel = styled(({ as }) => as)`
         user-select: none;
         pointer-events: none;
         top: 0;
-        left: ${({ xPos }) => xPos}px;
         width: 50px;
         height: 50px;
         background-color: ${colors.white};
@@ -74,40 +72,120 @@ export const MenuPanel = styled(({ as }) => as)`
             25% 0%
         );
         filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
-        transform: rotate(90deg) translateX(-13px);
+        transform: rotate(90deg) translateX(13px);
+        transform-origin: top center;
         transition: transform 0.9s ease-out;
     }
 
-    ${({ active }) =>
-        active
+    ${({ properties }) => css`
+        ${properties?.position === "left"
+            ? `
+                  ${
+                      properties?.active
+                          ? `
+                            transform-origin: top left;
+                            right: calc(${properties?.posX}px - 750px);
+                            transform: translateY(85px);
+
+                            ${minwidth(screens.desktop.sm)(`
+                                transform: translateY(85px);
+                            `)}
+
+                        `
+                          : `
+                            transform-origin: top left;
+                            right: calc(${properties?.posX}px - 750px);
+                            transform: translateY(165px);
+
+                            ${minwidth(screens.desktop.sm)(`
+                                transform: translateY(165px);
+                        `)}
+                        `
+                  }
+            `
+            : properties?.position === "right"
+            ? `
+                  ${
+                      properties?.active
+                          ? `
+                            left: calc(${properties?.posX}px - 750px);
+                            transform: translateY(85px);
+
+                            &:before {
+                                right: 40px;
+                            }
+
+                            ${minwidth(screens.desktop.sm)(`
+                                transform: translateY(85px);
+                            `)}
+                        `
+                          : `
+                            left: calc(${properties?.posX}px - 750px);
+                            transform: translateY(165px);
+
+                            ${minwidth(screens.desktop.sm)(`
+                                transform: translateY(165px);
+                        `)}
+                        `
+                  }
+              `
+            : css`
+                  ${properties?.active
+                      ? `
+                            left: 50%;
+                            transform: translateX(-50%) translateY(85px);
+
+                            &:before {
+                                left: calc(${properties?.posX}px + ${
+                            properties?.width
+                        }px + 25px);
+                            }
+
+                            ${minwidth(screens.desktop.sm)(`
+                                transform: translateX(-50%) translateY(85px);
+                            &:before {
+                                left: calc(${properties?.posX}px - 433px + ${properties?.width}px + 15px);
+                            }
+                            `)}
+
+                        `
+                      : `
+                        left: 50%;
+                        transform: translateX(-50%) translateY(165px);
+
+                            &:before {
+                                left: calc(${properties?.posX}px + ${
+                            properties?.width
+                        }px + 25px);
+                            }
+
+                        ${minwidth(screens.desktop.sm)(`
+                            transform: translateX(-50%) translateY(165px);
+
+                            &:before {
+                                left: calc(${properties?.posX}px - 433px + ${properties?.width}px + 15px);
+                            }
+                        `)}
+                  `}
+              `}
+        ${properties?.active
             ? css`
                   opacity: 1;
                   z-index: 1;
-                  left: 50%;
-                  transform: translateX(-50%) translateY(85px);
-
-                  ${minwidth(screens.desktop.sm)(`
-                    left: ${({ xPos }) => xPos}px;
-                    transform: translateX(-${({ xPos }) =>
-                        xPos}px) translateY(85px);
-                  `)}
               `
             : css`
                   opacity: 0;
                   user-select: none;
                   pointer-events: none;
                   z-index: -50;
-                  left: 50%;
-                  transform: translateX(-50%) translateY(165px);
-
-                  ${minwidth(screens.desktop.sm)(`
-                    left: ${({ xPos }) => xPos}px;
-                    transform: translateX(-${({ xPos }) =>
-                        xPos}px) translateY(165px);
-                  `)}
               `}
+    `}
 `;
 MenuPanel.defaultProps = {
     as: "div",
-    active: "is--not-active",
+    properties: {
+        active: "is--not-active",
+        position: "center",
+        panelPosX: 50,
+    },
 };

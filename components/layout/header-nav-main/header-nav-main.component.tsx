@@ -164,11 +164,11 @@ const NAV_ITEMS: TMenuItems[] = [
     },
 ];
 
-function DropdownPanel({ id, data }: IDropdownPanel) {
+export function DropdownPanel({ id, data, position }: IDropdownPanel) {
     const item = data;
 
     return (
-        <MenuPanel>
+        <MenuPanel position={position}>
             <>
                 <s.NavMenuLinks>
                     {item.submenu &&
@@ -241,7 +241,7 @@ export default function HeaderNavMain({}: IHeaderNavMain) {
         <s.HeaderNavMain>
             <DropdownMenu>
                 <s.HeaderNavItem>
-                    <Selector icon={<ChevronIcon />}>
+                    <Selector icon={<ChevronIcon />} rotate={true}>
                         {watchMenuData.label}
                     </Selector>
                 </s.HeaderNavItem>
@@ -250,7 +250,7 @@ export default function HeaderNavMain({}: IHeaderNavMain) {
             </DropdownMenu>
             <DropdownMenu>
                 <s.HeaderNavItem>
-                    <Selector icon={<ChevronIcon />}>
+                    <Selector icon={<ChevronIcon />} rotate={true}>
                         {resourcesMenuData.label}
                     </Selector>
                 </s.HeaderNavItem>
@@ -264,7 +264,7 @@ export default function HeaderNavMain({}: IHeaderNavMain) {
 
             <DropdownMenu>
                 <s.HeaderNavItem>
-                    <Selector icon={<ChevronIcon />}>
+                    <Selector icon={<ChevronIcon />} rotate={true}>
                         {aboutMenuData.label}
                     </Selector>
                 </s.HeaderNavItem>

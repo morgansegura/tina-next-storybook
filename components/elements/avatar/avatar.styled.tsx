@@ -4,25 +4,47 @@ import { IconSvgPath } from "@components/elements/icons/user/user.styled";
 import { sp } from "@styles/spacing";
 
 export const Avatar = styled.div`
+    position: relative;
     display: grid;
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
     overflow: hidden;
-    background-color: ${colors.ebony};
 
-    ${IconSvgPath} {
-        fill: ${colors.white};
-    }
+    ${({ properties }) => css`
+        ${properties.size === 32
+            ? `
+                width: ${sp[8]};
+                height: ${sp[8]};
+            `
+            : ``}
 
-    ${({ size }) =>
-        size === 32
-            ? css`
-                  width: ${sp[8]};
-                  height: ${sp[8]};
-              `
-            : css``}
+        ${properties.emboss &&
+        `
+            &:before {
+                border: 2px solid rgba(25, 26, 27, 0.15);
+            }
+        `}
+    `}
+
     ${({ user }) =>
         // @ts-ignore
-        user?.image ? css`` : css``}
+        user?.image
+            ? css`
+                  background-color: ${colors.ebony};
+
+                  ${IconSvgPath} {
+                      fill: ${colors.white};
+                  }
+              `
+            : css`
+                  background-color: ${colors.neutral70};
+              `}
 `;
+
+Avatar.defaultProps = {
+    properties: {
+        emboss: false,
+        size: 32,
+    },
+};
