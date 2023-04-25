@@ -25,5 +25,5 @@ export const Contain = styled.div`
     position: relative;
     /* order: 2; */
     width: 100%;
-    /* min-height: 200vh; */
+    min-height: 200vh;
 `;
