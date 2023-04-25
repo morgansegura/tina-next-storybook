@@ -4,6 +4,7 @@ export interface IColors {
     ebony: string;
     white: string;
     primary: string;
+    button: string;
 
     neutral50: string;
     neutral60: string;

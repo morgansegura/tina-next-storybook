@@ -25,9 +25,9 @@ export const IconSvg = styled.svg`
 
 IconSvg.defaultProps = {
     direction: "down",
-    width: "14",
-    height: "8",
-    viewBox: "0 0 14 8",
+    width: "15",
+    height: "14",
+    viewBox: "0 0 15 14",
 };
 
 export const IconSvgPath = styled.path`

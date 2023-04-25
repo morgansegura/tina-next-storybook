@@ -47,21 +47,21 @@ export default function Logo({ fill, size, variant }: ILogo) {
             <s.Icon>
                 <LogoIcon
                     fill={fill}
-                    height="32"
+                    height={32}
                     size={size}
                     variant={variant}
                     viewBox="0 0 31 32"
-                    width="31"
+                    width={31}
                 />
             </s.Icon>
             <s.Text>
                 <LogoText
                     fill={fill}
-                    height="18"
+                    height={18}
                     size={size}
                     variant={variant}
                     viewBox="0 0 96 18"
-                    width="96"
+                    width={96}
                 />
             </s.Text>
         </s.Container>

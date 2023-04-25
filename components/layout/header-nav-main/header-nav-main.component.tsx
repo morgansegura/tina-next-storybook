@@ -14,14 +14,14 @@ import ChevronIcon from "@components/elements/icons/chevron/chevron.component";
 import ArrowIcon from "@components/elements/icons/arrow/arrow.component";
 import PlayIcon from "@components/elements/icons/play/play.component";
 // [Styles]
-import * as s from "components/layout/header-nav-main/header-nav-main.styled";
+import * as s from "@components/layout/header-nav-main/header-nav-main.styled";
 // [Types]
 import {
     IDropdownPanel,
     IHeaderNavMain,
     IMenuChildren,
     TMenuItems,
-} from "components/layout/header-nav-main/header-nav-main.types";
+} from "@components/layout/header-nav-main/header-nav-main.types";
 
 const NAV_ITEMS: TMenuItems[] = [
     {

@@ -3,6 +3,7 @@ import useScrollDirection from "@hooks/useScrollDetection";
 // [Components]
 import Seo from "@components/layout/seo/seo.component";
 import Header from "@components/layout/header/header.component";
+import Footer from "@components/layout/footer/footer.component";
 // [Styles]
 import * as s from "@components/layout/default-layout/default-layout.styled";
 // [Types]
@@ -40,6 +41,7 @@ export default function DefaultLayout({
                 <s.Main animateScrollDirection={scrolling}>
                     <s.Contain>{children}</s.Contain>
                 </s.Main>
+                <Footer />
             </s.Wrapper>
         </Seo>
     );

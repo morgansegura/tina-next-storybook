@@ -6,6 +6,7 @@ export const colors: IColors = {
     ebony: "#191a1b",
     white: "#ffffff",
     primary: "#00b3e5",
+    button: "#53B2FF",
 
     neutral50: "#f9fafc",
     neutral60: "#f6f8fa",

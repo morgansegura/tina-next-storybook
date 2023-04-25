@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 export const Main = styled.div`
     position: relative;
     flex: 1 0 auto;
-    order: 1;
+    /* order: 1; */
     display: grid;
     transition: opacity 0.3s ease-out;
 
@@ -23,7 +23,7 @@ export const Main = styled.div`
 `;
 export const Contain = styled.div`
     position: relative;
-    order: 2;
+    /* order: 2; */
     width: 100%;
-    min-height: 200vh;
+    /* min-height: 200vh; */
 `;

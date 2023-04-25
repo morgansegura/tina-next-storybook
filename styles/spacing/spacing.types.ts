@@ -21,6 +21,7 @@ export interface ISpacingRange {
     12: string | number;
     14: string | number;
     16: string | number;
+    18: string | number;
     20: string | number;
     22: string | number;
     24: string | number;
@@ -61,6 +62,7 @@ export type TSpacingRange = {
     12: string | number;
     14: string | number;
     16: string | number;
+    18: string | number;
     20: string | number;
     22: string | number;
     24: string | number;

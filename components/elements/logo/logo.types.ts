@@ -5,17 +5,17 @@ export interface ILogo {
 }
 export interface IIcon {
     fill?: string;
-    height?: string;
+    height?: number;
     size?: "sm" | "md" | "lg" | "xl";
     variant?: "icon" | "full";
     viewBox?: string;
-    width?: string;
+    width?: number;
 }
 export interface IText {
     fill?: string;
-    height?: string;
+    height?: number;
     size?: "sm" | "md" | "lg" | "xl";
     variant?: "icon" | "full";
     viewBox?: string;
-    width?: string;
+    width?: number;
 }

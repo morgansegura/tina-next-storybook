@@ -45,6 +45,31 @@ export default defineConfig({
                         `/demo/blog/${document._sys.filename}`,
                 },
             },
+            {
+                name: "pages",
+                label: "Pages",
+                path: "content/pages",
+                fields: [
+                    {
+                        type: "string",
+                        name: "title",
+                        label: "Title",
+                        isTitle: true,
+                        required: true,
+                    },
+                    {
+                        type: "rich-text",
+                        name: "body",
+                        label: "Body",
+                        isBody: true,
+                    },
+                ],
+                ui: {
+                    // This is an DEMO router. You can remove this to fit your site
+                    router: ({ document }) =>
+                        `/demo/blog/${document._sys.filename}`,
+                },
+            },
         ],
     },
 });
