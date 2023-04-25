@@ -16,5 +16,6 @@ export interface ISelector {
 export interface IMenu {
     as?: any;
     children: ReactNode;
+    forceArrowPosX?: number;
     position?: "center" | "left" | "right";
 }

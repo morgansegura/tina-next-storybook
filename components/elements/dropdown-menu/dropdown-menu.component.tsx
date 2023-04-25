@@ -80,7 +80,7 @@ export function Selector({ children, icon, rotate }: ISelector) {
         </s.Selector>
     );
 }
-export function MenuPanel({ as, children, position }: IMenu) {
+export function MenuPanel({ as, children, position, forceArrowPosX }: IMenu) {
     const panelRef = useRef<any>(null);
     const [active, setActive, x, setX, width, setWidth] =
         useContext(DropdownContext);
@@ -114,7 +114,13 @@ export function MenuPanel({ as, children, position }: IMenu) {
                 as={as}
                 ref={panelRef}
                 setActive={setActive}
-                properties={{ active, posX: x, position, width }}
+                properties={{
+                    active,
+                    posX: x,
+                    position,
+                    width,
+                    forceArrowPosX,
+                }}
             >
                 {children}
             </s.MenuPanel>

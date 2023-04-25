@@ -1,6 +1,8 @@
 // [Components]
+import Banner from "@components/elements/banner/banner.component";
 import { Container } from "@components/elements/container";
 import { LogoIcon } from "@components/elements/logo/logo.component";
+import Spacer from "@components/elements/spacer/spacer.component";
 import Subscribe from "@components/elements/subscribe/subscribe.component";
 import FooterNav, {
     FooterAppNav,
@@ -16,13 +18,23 @@ export default function Footer({ children }: IFooter) {
     return (
         <s.Footer>
             <s.Contain>
-                <s.Banner>
-                    <s.Title>
-                        Everything we make is available for free because of a
-                        generous community of supporters.
-                    </s.Title>
-                    <s.Selector>Support BibleProject</s.Selector>
-                </s.Banner>
+                <s.FooterBanner>
+                    <Banner
+                        title={{
+                            as: "h1",
+                            label: "Everything we make is available for free because of a generous community of supporters.",
+                        }}
+                        selector={{
+                            label: "Support BibleProject",
+                        }}
+                    />
+                </s.FooterBanner>
+
+                <Spacer
+                    bottom
+                    top
+                    variant={{ bg: "ebony", border: "center-dashed-rainbow" }}
+                />
 
                 <s.Grid>
                     <s.IconContainer>

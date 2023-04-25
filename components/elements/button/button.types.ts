@@ -5,4 +5,6 @@ export interface IButton {
     children?: ReactNode;
     icon?: "right" | "left";
     variant?: "header-login" | "default";
+    bgColor?: string;
+    textColor?: string;
 }
