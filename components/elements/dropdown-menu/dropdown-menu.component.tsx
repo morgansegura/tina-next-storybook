@@ -85,24 +85,6 @@ export function MenuPanel({ as, children, position }: IMenu) {
     const [active, setActive, x, setX, width, setWidth] =
         useContext(DropdownContext);
 
-    // useEffect(() => {
-    //     const handleCloseOnClickOutside = (e: any) => {
-    //         if (panelRef?.current && !panelRef.current.contains(e.target)) {
-    //             setActive(false);
-    //             console.log("Arrrg");
-    //         }
-    //     };
-
-    //     document.addEventListener("click", handleCloseOnClickOutside, true);
-
-    //     return () =>
-    //         document.removeEventListener(
-    //             "click",
-    //             handleCloseOnClickOutside,
-    //             true
-    //         );
-    // }, [panelRef]);
-
     useEffect(() => {
         const keyPressBlur = () => {
             setActive(false);

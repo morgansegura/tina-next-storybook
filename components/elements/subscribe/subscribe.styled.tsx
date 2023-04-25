@@ -2,9 +2,7 @@ import styled, { css } from "styled-components";
 import { colors } from "@styles/colors/colors.config";
 import { sp } from "@styles/spacing";
 import { Button } from "@components/elements/button/button.styled";
-import { Container } from "@components/elements/container/container.styled";
 import { fontSizing } from "@styles/typography/typography.config";
-import { rgba } from "polished";
 
 export const Wrapper = styled.div``;
 export const Title = styled.div`
