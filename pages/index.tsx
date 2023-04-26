@@ -28,11 +28,10 @@ export default function Home(props: { query: any; variables: any; data: any }) {
                     top
                     variant={{ bg: "body", border: "center-dashed-rainbow" }}
                 />
-                <Typography>Main Content of Home Page</Typography>
+                <Typography mb={{ mobile: { sm: 10 } }}>
+                    Main Content of Home Page
+                </Typography>
             </Container>
-
-            <div></div>
-            <p></p>
         </Layout>
     );
 }
