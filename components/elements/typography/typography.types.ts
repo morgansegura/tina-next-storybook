@@ -1,3 +1,9 @@
-import { IBox } from "@components/elements/box/box.types";
+import { ReactNode } from "react";
+import { colors } from "@styles/colors/colors.config";
+import { GenericType } from "types/generic.type";
 
-export interface ITypography extends IBox {}
+export interface ITypography {
+    as?: any;
+    children?: ReactNode;
+    rest?: GenericType;
+}

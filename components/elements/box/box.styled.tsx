@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { minwidth, screens } from "@styles/screens/screens.config";
 import { rem } from "polished";
 import { IBox } from "@components/elements/box/box.types";

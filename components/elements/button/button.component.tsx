@@ -2,13 +2,29 @@
 import * as s from "@components/elements/button/button.styled";
 // [Types]
 import { IButton } from "@components/elements/button/button.types";
+import Link from "next/link";
 
-export default function Button({ as, children, icon, variant }: IButton) {
+export default function Button({
+    as,
+    children,
+    icon,
+    label,
+    onClick,
+    path,
+    rest,
+    variant,
+}: IButton) {
     return (
-        <s.Button as={as} variant={variant}>
-            {icon === "left" && icon}
+        <s.Button
+            as={path ? Link : as}
+            href={path}
+            icon={icon}
+            onClick={onClick}
+            variant={variant}
+            {...rest}
+        >
+            {label && <span>{label}</span>}
             {children}
-            {icon === "right" && icon}
         </s.Button>
     );
 }

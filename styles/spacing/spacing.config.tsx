@@ -38,6 +38,7 @@ export const spacingScale: TSpacingRange = {
     56: rem("224px"),
     60: rem("240px"),
     64: rem("256px"),
+    70: rem("282px"),
     72: rem("288px"),
     80: rem("320px"),
     96: rem("384px"),
