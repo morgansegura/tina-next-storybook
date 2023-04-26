@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 // [Hooks]
 import useScrollDirection from "@hooks/useScrollDetection";
@@ -8,19 +8,10 @@ import HeaderNavUser from "@components/layout/header-nav-user/header-nav-user.co
 import HeaderNavMain from "@components/layout/header-nav-main/header-nav-main.component";
 
 //[Styled]
-import * as s from "@components/layout/header/header.styled";
+import s from "@components/layout/header/header.module.scss";
 // [Types]
 import { IHeader } from "@components/layout/header/header.types";
-
-function HeaderLogo() {
-    return (
-        <Link href="/">
-            <s.LogoSvg>
-                <Logo />
-            </s.LogoSvg>
-        </Link>
-    );
-}
+import clsx from "clsx";
 
 export default function Header({ user }: IHeader) {
     const { scrollDirection, distance } = useScrollDirection();
@@ -35,12 +26,37 @@ export default function Header({ user }: IHeader) {
             : ``;
 
     return (
-        <s.Wrapper animateScrollDirection={scrolling}>
-            <s.Contain animateScrollDirection={scrolling}>
-                <HeaderLogo />
-                <HeaderNavMain />
-                <HeaderNavUser user={user} />
-            </s.Contain>
-        </s.Wrapper>
+        <div
+            className={clsx(
+                s.Wrapper,
+                scrolling === "fade-in"
+                    ? s.WrapperFadeIn
+                    : scrolling === "fade-out"
+                    ? s.WrapperFadeOut
+                    : s.WrapperStatic,
+                "contain-xxl"
+            )}
+        >
+            <div
+                className={clsx(
+                    s.Contain,
+                    scrolling === "fade-in"
+                        ? s.ContainFadeIn
+                        : scrolling === "fade-out"
+                        ? s.ContainFadeOut
+                        : s.ContainStatic,
+                    "contain-xl"
+                )}
+            >
+                <Link href="/">
+                    <div className={s.LogoSvg}>
+                        <Logo />
+                    </div>
+                </Link>
+
+                {/* <HeaderNavMain />
+                <HeaderNavUser user={user} /> */}
+            </div>
+        </div>
     );
 }

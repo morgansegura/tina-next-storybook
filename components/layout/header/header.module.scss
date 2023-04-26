@@ -1,0 +1,105 @@
+@import "/styles/utilities/utilities.module";
+
+.LogoSvg {
+    svg:first-child {
+        width: toRem(31px);
+        height: toRem(31px);
+
+        @include md {
+            width: toRem(32px);
+            height: toRem(32px);
+        }
+        @include xl {
+            width: toRem(40px);
+            height: toRem(40px);
+        }
+
+        path {
+            fill: $brand-primary;
+        }
+    }
+    svg:last-child {
+        margin-left: toRem(8px);
+        width: toRem(95.51px);
+        height: auto;
+
+        @include md {
+            margin-left: toRem(8.61px);
+            width: toRem(99.38px);
+        }
+        @include lg {
+            margin-left: toRem(8.73px);
+            width: toRem(100.79px);
+        }
+        @include xl {
+            margin-left: toRem(10.94px);
+            width: toRem(126.35px);
+        }
+
+        path {
+            fill: $system-neutral-90;
+        }
+    }
+}
+
+.Wrapper {
+    z-index: 50;
+    left: 0;
+    right: 0;
+    display: grid;
+    align-items: center;
+    transform: translateY(0);
+    min-height: 104px;
+    max-height: 104px;
+    opacity: 1;
+
+    &.WrapperFadeIn {
+        position: fixed;
+    }
+
+    &.WrapperFadeOut {
+        position: relative;
+    }
+
+    &.WrapperStatic {
+        position: sticky;
+    }
+}
+
+.Contain {
+    align-self: center;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 72px;
+    border-radius: $sp-2;
+
+    &.ContainFadeIn {
+        background-color: $system-neutral-00;
+        opacity: 1;
+        transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+    }
+
+    &.ContainFadeOut {
+        background-color: transparent;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    &.ContainStatic {
+    }
+}
+
+.NavItem {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    transition: fill 0.3s ease-out, color 0.3s ease-out;
+
+    &.no-select {
+        user-select: none;
+        cursor: default;
+    }
+}

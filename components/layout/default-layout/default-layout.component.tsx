@@ -5,7 +5,7 @@ import Seo from "@components/layout/seo/seo.component";
 import Header from "@components/layout/header/header.component";
 import Footer from "@components/layout/footer/footer.component";
 // [Styles]
-import * as s from "@components/layout/default-layout/default-layout.styled";
+import s from "@components/layout/default-layout/default-layout.module.scss";
 // [Types]
 import { IDefaultLayout } from "@components/layout/default-layout/default-layout.types";
 import { IUser } from "types/user.types";
@@ -36,13 +36,13 @@ export default function DefaultLayout({
 
     return (
         <Seo title={title} description={description}>
-            <s.Wrapper>
+            <div security={s.wrapper}>
                 <Header user={user} />
-                <s.Main animateScrollDirection={scrolling}>
-                    <s.Contain>{children}</s.Contain>
-                </s.Main>
-                <Footer />
-            </s.Wrapper>
+                <main className={s.main} animateScrollDirection={scrolling}>
+                    <div className={s.contain}>{children}</div>
+                </main>
+                {/* <Footer /> */}
+            </div>
         </Seo>
     );
 }

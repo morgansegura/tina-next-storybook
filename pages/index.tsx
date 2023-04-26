@@ -25,7 +25,7 @@ export default function Home(props: { query: any; variables: any; data: any }) {
 
     return (
         <Layout title={title} description={description}>
-            <HeroExplore
+            {/* <HeroExplore
                 bgColor="#b196b0"
                 title="The Last Will Be First"
                 copy="Discover how God overturns human-made systems of status and redefines power as love."
@@ -57,7 +57,7 @@ export default function Home(props: { query: any; variables: any; data: any }) {
                         // objectPosition="center"
                     />
                 }
-            />
+            /> */}
             <Container maxWidth="desktop-large">
                 <Typography>Main Content of Home Page</Typography>
                 <Spacer

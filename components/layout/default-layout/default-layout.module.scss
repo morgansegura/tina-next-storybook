@@ -1,0 +1,24 @@
+@import "/styles/utilities/utilities.module";
+
+.wrapper {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.main {
+    .fade-in {
+        padding-top: 105px;
+    }
+    .fade-out {
+        padding-top: unset;
+    }
+}
+.contain {
+    position: relative;
+    /* order: 2; */
+    width: 100%;
+    min-height: 200vh;
+}

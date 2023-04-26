@@ -4,6 +4,7 @@ import { GenericType } from "types/generic.type";
 
 export interface ITypography {
     as?: any;
+    className?: string;
     children?: ReactNode;
     rest?: GenericType;
 }
