@@ -20,15 +20,26 @@ export default function Home(props: { query: any; variables: any; data: any }) {
     });
 
     return (
-        <Layout title={title} description={description}>
+        <Layout
+            title={title}
+            description={description}
+        >
             <Container maxWidth="desktop-large">
-                <Typography>Main Content of Home Page</Typography>
+                <Typography
+                    className="prose"
+                    variant="prose"
+                >
+                    Main Content of Home Page
+                </Typography>
                 <Spacer
                     bottom
                     top
                     variant={{ bg: "body", border: "center-dashed-rainbow" }}
                 />
-                <Typography mb={{ mobile: { sm: 10 } }}>
+                <Typography
+                    as="p"
+                    variant="default"
+                >
                     Main Content of Home Page
                 </Typography>
             </Container>

@@ -35,7 +35,10 @@ export default function DefaultLayout({
     };
 
     return (
-        <Seo title={title} description={description}>
+        <Seo
+            title={title}
+            description={description}
+        >
             <s.Wrapper>
                 <Header user={user} />
                 <s.Main animateScrollDirection={scrolling}>

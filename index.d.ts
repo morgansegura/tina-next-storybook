@@ -9,5 +9,6 @@ declare module "react" {
         active?: boolean | string;
         as?: (as) => as;
         properties?: any;
+        variant?: any;
     }
 }

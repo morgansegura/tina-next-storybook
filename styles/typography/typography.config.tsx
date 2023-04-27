@@ -15,26 +15,37 @@ import {
 } from "@styles/typography/typography.types";
 
 export const graphik = localFont({
+    // 400, 500, 600, 700 (r, m, sb, b)
     src: [
         {
-            path: "../../public/fonts/graphik/Graphik-Semibold-Web.woff2",
+            path: "../../public/fonts/graphik/Graphik-Black-Web.woff",
+            weight: "900",
+            style: "normal",
+        },
+        {
+            path: "../../public/fonts/graphik/Graphik-Super-Web.woff",
+            weight: "800",
+            style: "normal",
+        },
+        {
+            path: "../../public/fonts/graphik/Graphik-Bold-Web.woff",
             weight: "700",
             style: "normal",
         },
         {
-            path: "../../public/fonts/graphik/Graphik-Semibold-Web.woff2",
+            path: "../../public/fonts/graphik/Graphik-Semibold-Web.woff",
             weight: "600",
             style: "normal",
         },
         {
-            path: "../../public/fonts/graphik/Graphik-Regular-Web.woff2",
-            weight: "400",
+            path: "../../public/fonts/graphik/Graphik-Medium-Web.woff",
+            weight: "500",
             style: "normal",
         },
         {
-            path: "../../public/fonts/graphik/Graphik-RegularItalic-Web.woff2",
-            weight: "300",
-            style: "italic",
+            path: "../../public/fonts/graphik/Graphik-Regular-Web.woff",
+            weight: "400",
+            style: "normal",
         },
     ],
 });

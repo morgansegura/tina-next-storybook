@@ -2,6 +2,10 @@ import { ReactNode } from "react";
 import { GenericType } from "types/generic.type";
 import { colors } from "@styles/colors/colors.config";
 
+export type TVariant = {
+    style?: string;
+};
+
 export type TDevice = {
     mobile?: {
         sm?: number;
@@ -33,12 +37,8 @@ export type TProperties = {
 
 export interface IBox {
     as?: any;
-    children?: ReactNode | ReactNode[];
-    mx?: TDevice;
-    my?: TDevice;
-    mt?: TDevice;
-    mr?: TDevice;
-    mb?: TDevice;
-    ml?: TDevice;
+    className?: string;
+    children?: ReactNode;
     rest?: GenericType;
+    variant?: string;
 }

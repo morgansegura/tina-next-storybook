@@ -14,6 +14,7 @@
         "build": "concurrently \"npm run build:tina\" \"npm run build:next\" \"npm run build:storybook\""
     },
     "dependencies": {
+        "clsx": "^1.2.1",
         "next": "13.3.0",
         "polished": "^4.2.2",
         "react": "18.2.0",
