@@ -14,42 +14,34 @@ import {
     TWordBreak,
 } from "@styles/typography/typography.types";
 
-export const graphik = localFont({
-    // 400, 500, 600, 700 (r, m, sb, b)
+const graphik = localFont({
     src: [
         {
-            path: "../../public/fonts/graphik/Graphik-Black-Web.woff",
+            path: "../../public/static/fonts/graphik/Graphik-Black-Web.woff2",
             weight: "900",
-            style: "normal",
         },
         {
-            path: "../../public/fonts/graphik/Graphik-Super-Web.woff",
+            path: "../../public/static/fonts/graphik/Graphik-Super-Web.woff2",
             weight: "800",
-            style: "normal",
         },
         {
-            path: "../../public/fonts/graphik/Graphik-Bold-Web.woff",
+            path: "../../public/static/fonts/graphik/Graphik-Bold-Web.woff2",
             weight: "700",
-            style: "normal",
         },
         {
-            path: "../../public/fonts/graphik/Graphik-Semibold-Web.woff",
+            path: "../../public/static/fonts/graphik/Graphik-Semibold-Web.woff2",
             weight: "600",
-            style: "normal",
         },
         {
-            path: "../../public/fonts/graphik/Graphik-Medium-Web.woff",
+            path: "../../public/static/fonts/graphik/Graphik-Medium-Web.woff2",
             weight: "500",
-            style: "normal",
         },
         {
-            path: "../../public/fonts/graphik/Graphik-Regular-Web.woff",
+            path: "../../public/static/fonts/graphik/Graphik-Regular-Web.woff",
             weight: "400",
-            style: "normal",
         },
     ],
 });
-
 export const fontSizing = (
     fontSize: string,
     lineHeight: string,
@@ -69,9 +61,12 @@ export const fontSizing = (
     `;
 };
 
+// console.log(graphik);
+
 export const font: TFont = {
     family: {
-        graphik: `${graphik.style.fontFamily},"Helvetica Neue","Helvetica","Arial",sans-serif`,
+        graphik: `${graphik.style.fontFamily}`,
+        sans: `"Helvetica Neue", Helvetica,sans-serif`,
     },
     numeric: {
         normal: "font-variant-numeric: normal;",

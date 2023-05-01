@@ -21,7 +21,7 @@ export const colors: IColors = {
     neutral600: "#4f5669",
     neutral700: "#3e4504",
     neutral800: "#2a2f404",
-    neutral900: "#191a10b",
+    neutral900: "#191a10",
 
     red50: "#fef8f4",
     red100: "#f9e3de",

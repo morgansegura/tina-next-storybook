@@ -9,6 +9,9 @@ declare module "react" {
         active?: boolean | string;
         as?: (as) => as;
         properties?: any;
+        shadowColor?: typeof colors | string;
+        bgColor?: typeof colors | string;
+        textColor?: typeof colors | string;
         variant?: any;
     }
 }

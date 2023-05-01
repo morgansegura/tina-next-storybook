@@ -24,8 +24,13 @@ export default class MyDocument extends Document<IDocument> {
 
             return {
                 ...initialProps,
-                styles: [initialProps.styles],
-                // sheet.getStyleElement()
+                // styles: [initialProps.styles],
+                styles: (
+                    <>
+                        {initialProps.styles}
+                        {/* {sheet.getStyleElement()} */}
+                    </>
+                ),
             };
         } finally {
             sheet.seal();
@@ -36,6 +41,7 @@ export default class MyDocument extends Document<IDocument> {
         return (
             <Html>
                 <Head />
+
                 <body>
                     <Main />
                     <div id="root" />

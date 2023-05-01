@@ -1,5 +1,6 @@
 import { IBox } from "@components/elements/box/box.types";
 
 export interface ITypography extends IBox {
-    variant?: "default" | "prose";
+    variant?: string;
+    className?: string;
 }

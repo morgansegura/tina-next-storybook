@@ -19,21 +19,36 @@ const imageKitLoader = ({ src, width, quality }: ImageLoaderProps) => {
 
 export default function Image({
     alt,
-    fill,
     height,
-    src,
+    fill,
+    priority,
     quality,
+    src,
     width,
+    rest,
+    sizes,
 }: IImage) {
-    return (
+    return fill ? (
         <s.Img
             alt={alt}
+            loader={imageKitLoader}
+            src={src}
+            sizes={sizes}
+            quality={quality}
+            priority={priority}
             fill={fill}
+            {...rest}
+        />
+    ) : (
+        <s.Img
+            alt={alt}
             height={height}
             loader={imageKitLoader}
             src={src}
             width={width}
             quality={quality}
+            priority={priority}
+            {...rest}
         />
     );
 }

@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 
-import { NextFont } from "@next/font";
-
 export type TFont = {
     family: {
-        graphik: NextFont | string;
+        graphik: string;
+        sans: string;
     };
 
     numeric: {

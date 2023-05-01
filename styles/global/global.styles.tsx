@@ -5,6 +5,7 @@ import { font, fontSizing } from "@styles/typography/typography.config";
 import { IGlobalStyles } from "@styles/global/global.types";
 
 export const GlobalStyles = createGlobalStyle<{ theme: IGlobalStyles }>`
+
         *,
         ::before,
         ::after {
@@ -19,18 +20,12 @@ export const GlobalStyles = createGlobalStyle<{ theme: IGlobalStyles }>`
             --ms-content: '';
         }
 
+
         html {
             line-height: 1.5;
             -webkit-text-size-adjust: 100%;
             -moz-tab-size: 4;
             tab-size: 4;
-            font-size: 100%;
-            font-variant-ligatures: none;
-            -webkit-font-variant-ligatures: none;
-            text-rendering: optimizeLegibility;
-            text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
-            font-family: ${font.family.graphik};
-            ${fontSizing("16px", "24px")};
         }
 
         body {
@@ -42,6 +37,13 @@ export const GlobalStyles = createGlobalStyle<{ theme: IGlobalStyles }>`
             color: ${colors.neutral900};
             overflow-x: hidden;
             overflow-y: auto;
+            font-size: 100%;
+            font-variant-ligatures: none;
+            -webkit-font-variant-ligatures: none;
+            text-rendering: optimizeLegibility;
+            text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+            font-family: ${font.family.graphik};
+            ${fontSizing("16px", "24px")};
         }
 
         div {

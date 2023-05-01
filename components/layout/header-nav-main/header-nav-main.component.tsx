@@ -204,8 +204,9 @@ export function DropdownPanel({ id, data, position }: IDropdownPanel) {
                     {item.cta?.image && (
                         <>
                             <Image
-                                width={392}
+                                fill={true}
                                 quality={65}
+                                sizes="(max-width: 420px) 100vw"
                                 src={item.cta.image.src}
                                 alt={item.cta.image.alt}
                             />
@@ -241,16 +242,25 @@ export default function HeaderNavMain({}: IHeaderNavMain) {
         <s.HeaderNavMain>
             <DropdownMenu>
                 <s.HeaderNavItem>
-                    <Selector icon={<ChevronIcon />} rotate={true}>
+                    <Selector
+                        icon={<ChevronIcon />}
+                        rotate={true}
+                    >
                         {watchMenuData.label}
                     </Selector>
                 </s.HeaderNavItem>
 
-                <DropdownPanel id={watchMenuData.id} data={watchMenuData} />
+                <DropdownPanel
+                    id={watchMenuData.id}
+                    data={watchMenuData}
+                />
             </DropdownMenu>
             <DropdownMenu>
                 <s.HeaderNavItem>
-                    <Selector icon={<ChevronIcon />} rotate={true}>
+                    <Selector
+                        icon={<ChevronIcon />}
+                        rotate={true}
+                    >
                         {resourcesMenuData.label}
                     </Selector>
                 </s.HeaderNavItem>
@@ -264,11 +274,17 @@ export default function HeaderNavMain({}: IHeaderNavMain) {
 
             <DropdownMenu>
                 <s.HeaderNavItem>
-                    <Selector icon={<ChevronIcon />} rotate={true}>
+                    <Selector
+                        icon={<ChevronIcon />}
+                        rotate={true}
+                    >
                         {aboutMenuData.label}
                     </Selector>
                 </s.HeaderNavItem>
-                <DropdownPanel id={aboutMenuData.id} data={aboutMenuData} />
+                <DropdownPanel
+                    id={aboutMenuData.id}
+                    data={aboutMenuData}
+                />
             </DropdownMenu>
 
             <s.HeaderNavItem>{giveMenuData.label}</s.HeaderNavItem>
