@@ -70,7 +70,7 @@ export default function HeroExplore({
                 (image.length > 1 ? (
                     <s.Image>
                         <>
-                            {mobileImage && (
+                            {mobileImage ? (
                                 <Image
                                     src={image[0].src}
                                     alt={image[0].alt}
@@ -78,8 +78,7 @@ export default function HeroExplore({
                                     quality={image[0].quality}
                                     priority
                                 />
-                            )}
-                            {desktopImage && (
+                            ) : (
                                 <Image
                                     src={image[1].src}
                                     fill={true}

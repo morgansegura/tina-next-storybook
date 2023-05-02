@@ -205,6 +205,7 @@ export const text: TText = {
         clip: "text-overflow: clip;",
     },
 };
+
 export const tracking: TTracking = {
     tighter: "letter-spacing: -0.05em;",
     tight: "letter-spacing: -0.025em;",

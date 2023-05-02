@@ -43,6 +43,7 @@ export const Hero = styled.div`
                         `)};
                   `
                 : css`
+                rgba(1,1,1,0) 0%, rgba(0,0,0,.7) 100%
                       ${bg.linear([
                           "180deg",
                           "rgba(92, 86, 74, 0) 19.04%",
@@ -52,8 +53,8 @@ export const Hero = styled.div`
                       ${minwidth(screens.desktop.sm)(`
                         ${bg.linear([
                             "90deg",
-                            `${colors.ebony} 20.18%`,
-                            `${rgba(colors.ebony, 0.62)} 45.1%`,
+                            `${rgba(colors.ebony, 0.62)} 20.18%`,
+                            `${rgba(colors.ebony, 0)} 45.1%`,
                             "rgba(92, 86, 74, 0) 67.47%",
                         ])}
                   `)};
@@ -161,17 +162,10 @@ export const Image = styled.div`
 // [Media]
 export const ButtonContainer = styled.div`
     display: flex;
-    grid-template-columns: 1fr;
-    row-gap: ${sp[3]};
+    flex-direction: column;
 
     ${minwidth(screens.tablet)(`
-        row-gap: unset;
-        column-gap: ${sp[4]};
-        grid-template-columns: 1fr 1fr;
-    `)};
-
-    ${minwidth(screens.desktop.lg)(`
-        column-gap: ${sp[4]};
+        flex-direction: row;
     `)};
 
     button {
@@ -187,9 +181,12 @@ export const ButtonContainer = styled.div`
         &:first-child {
             background-color: ${colors.white};
             color: ${colors.ebony};
+            margin-bottom: ${sp[3]};
 
             ${minwidth(screens.tablet)(`
                 border-radius: ${sp[3]};
+                margin-bottom: unset;
+                margin-right: ${sp[4]};
             `)};
 
             &:hover {

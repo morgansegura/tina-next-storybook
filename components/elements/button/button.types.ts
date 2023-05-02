@@ -12,4 +12,5 @@ export interface IButton {
     textColor?: string;
     title?: string;
     variant?: "header-login" | "default";
+    size?: "xs" | "sm";
 }

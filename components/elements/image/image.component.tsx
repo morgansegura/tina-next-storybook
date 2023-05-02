@@ -11,7 +11,7 @@ const imageKitLoader = ({ src, width, quality }: ImageLoaderProps) => {
         params.push(`q-${quality}`);
     }
     const paramsString = params.join(",");
-    var urlEndpoint = "https://ik.imagekit.io/bpweb1/web/media";
+    var urlEndpoint = "https://ik.imagekit.io/bpweb1/web/media/";
     if (urlEndpoint[urlEndpoint.length - 1] === "/")
         urlEndpoint = urlEndpoint.substring(0, urlEndpoint.length - 1);
     return `${urlEndpoint}/${src}?tr=${paramsString}`;
@@ -37,7 +37,6 @@ export default function Image({
             quality={quality}
             priority={priority}
             fill={fill}
-            {...rest}
         />
     ) : (
         <s.Img
@@ -48,7 +47,6 @@ export default function Image({
             width={width}
             quality={quality}
             priority={priority}
-            {...rest}
         />
     );
 }

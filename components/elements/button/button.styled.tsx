@@ -7,8 +7,48 @@ import { fontSizing } from "@styles/typography/typography.config";
 export const Button = styled(({ as }) => as)`
     cursor: pointer;
 
-    svg {
-    }
+    ${({ variant }) => (variant ? `` : ``)};
+
+    ${({ size }) =>
+        size
+            ? `
+        ${
+            size === "xs"
+                ? `
+            ${fontSizing("14px", "16px", 600)};
+        `
+                : ``
+        }
+        ${
+            size === "sm"
+                ? `
+
+        `
+                : ``
+        }
+        ${
+            size === "md"
+                ? `
+
+        `
+                : ``
+        }
+        ${
+            size === "lg"
+                ? `
+
+        `
+                : ``
+        }
+        ${
+            size === "xl"
+                ? `
+
+        `
+                : ``
+        }
+    `
+            : ``};
 
     ${({ variant }) =>
         variant === "header-login"

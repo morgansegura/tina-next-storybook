@@ -12,6 +12,7 @@ export default function Button({
     onClick,
     target,
     title,
+    size,
     variant,
 }: IButton) {
     return onClick ? (
@@ -19,6 +20,7 @@ export default function Button({
             as={as}
             onClick={onClick}
             data-title={title}
+            size={size}
             variant={variant}
         >
             <span>{icon}</span>
@@ -31,6 +33,7 @@ export default function Button({
             icon={icon}
             data-title={title}
             target={target}
+            size={size}
             variant={variant}
         >
             <span>{icon}</span>
