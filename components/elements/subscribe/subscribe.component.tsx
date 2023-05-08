@@ -1,7 +1,7 @@
 // [Styles]
 // [Components]
 // [Icons]
-import ArrowIcon from "@components/elements/icons/arrow/arrow.component";
+import ArrowIcon from "@components/elements/icons/arrow/ArrowIcon";
 import * as s from "@components/elements/subscribe/subscribe.styled";
 // [Tyles]
 import { ISubscribe } from "@components/elements/subscribe/subscribe.types";

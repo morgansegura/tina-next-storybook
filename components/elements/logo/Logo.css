@@ -1,0 +1,15 @@
+
+.Logo__container {
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 177px;
+    }
+}
+
+.Logo__icon {}
+
+.Logo__text {
+    ${fontSizing("22px", "22px", 600)};
+}

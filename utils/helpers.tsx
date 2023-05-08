@@ -1,5 +1,4 @@
 import { parseISO, format } from "date-fns";
-import { css } from "styled-components";
 
 export function Date({ dateString }: { dateString: string }) {
     const date = parseISO(dateString);

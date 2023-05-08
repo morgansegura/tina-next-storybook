@@ -9,6 +9,11 @@ export const seo = {
     homeScreen: {
         description: "",
         path: "/",
-        title: `${seoPrefix} Home Page ${seoSuffix}`,
+        title: `Home Page ${seoSuffix}`,
+    },
+    aboutScreen: {
+        description: "",
+        path: "/",
+        title: `About Page ${seoSuffix}`,
     },
 };

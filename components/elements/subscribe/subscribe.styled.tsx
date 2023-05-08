@@ -17,7 +17,7 @@ export const Form = styled.form`
     display: grid;
     grid-template-columns: 1fr 62px;
     grid-gap: ${sp[2]};
-    margin-bottom: ${sp[16]};
+    margin-bottom: var(--size-8);
 `;
 
 type TField = {
@@ -26,9 +26,9 @@ type TField = {
 
 export const Field = styled.input`
     background-color: transparent;
-    border: 1px solid ${colors.white};
+    border: 1px solid var(--color-white);
     border-radius: ${sp[2]};
-    padding: ${sp[4]};
+    padding: var(--size-2);
 
     ${({ focus }: TField) =>
         focus
@@ -53,12 +53,12 @@ export const Selector = styled(Button)`
     display: grid;
     align-items: center;
     justify-content: center;
-    background-color: ${colors.white};
+    background-color: var(--color-white);
     padding: ${sp[5]};
-    border-radius: ${sp[4]};
+    border-radius: var(--size-2);
 
     svg {
-        width: ${sp[4]};
-        height: ${sp[4]};
+        width: var(--size-2);
+        height: var(--size-2);
     }
 `;

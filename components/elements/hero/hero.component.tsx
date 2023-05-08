@@ -1,6 +1,6 @@
 import useWindowSize from "@hooks/useWindowSize";
 // [Components]
-import Image from "@components/elements/image/image.component";
+import Image from "@components/elements/imagekit/Imagekit";
 // [Styled]
 import * as s from "@components/elements/hero/hero.styled";
 // [Types]

@@ -3,9 +3,9 @@
 const nextConfig = {
     reactStrictMode: true,
     // swcMinify: true,
-    compiler: {
-        styledComponents: true,
-    },
+    // compiler: {
+    //     styledComponents: true,
+    // },
     // sassOptions: {
     //     includePaths: [path.join(__dirname, "styles")],
     // },

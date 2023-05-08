@@ -1,17 +1,18 @@
 import { config } from "@config";
 import { useTina } from "tinacms/dist/react";
 // [Components]
-import Button from "@components/elements/button/button.component";
-import Container from "@components/elements/container/container.component";
-import HeroExplore from "@components/layout/hero-explore/hero-explore.component";
-import Image from "@components/elements/image/image.component";
-import Layout from "@components/layout/default-layout/default-layout.component";
-import PlayIcon from "@components/elements/icons/play/play.component";
+import Button from "@components/elements/button/Button";
+import Container from "@components/elements/container/Container";
+import HeroExplore from "@components/layouts/hero-explore/hero-explore.component";
+import Image from "@components/elements/imagekit/Imagekit";
+import Layout from "@components/layouts/layout/Layout";
+import PlayIcon from "@components/elements/icons/play/PlayIcon";
 import Spacer from "@components/elements/spacer/spacer.component";
-import Typography from "@components/elements/typography/typography.component";
+import Typography from "@components/elements/typography/Typography";
 
 // [Styles]
 import * as s from "@styles/pages/home/home.styled";
+import GlobeIcon from "@components/elements/icons/globe/Globe";
 
 export default function Home(props: { query: any; variables: any; data: any }) {
     const {
@@ -56,11 +57,17 @@ export default function Home(props: { query: any; variables: any; data: any }) {
                         {
                             label: "Watch Isaiah 61",
                             onClick: () => alert("Playing Exous 1-18"),
-                            icon: <PlayIcon />,
+                            iconLeft: <PlayIcon />,
+                            variant: "solid",
+                            color: "white",
+                            size: "md",
                         },
                         {
                             label: "Explore the Visual Commentary Series",
                             href: "/explore",
+                            variant: "ghost",
+                            color: "white",
+                            size: "md",
                         },
                     ]}
                 />
@@ -85,6 +92,11 @@ export default function Home(props: { query: any; variables: any; data: any }) {
                             <Button
                                 href="/support"
                                 label="Support BibleProject"
+                                variant="ghost"
+                                color="neutral500"
+                                iconLeft={<PlayIcon />}
+                                iconRight={<GlobeIcon />}
+                                size="xs"
                             />
                         </s.Button>
                     </s.Content>

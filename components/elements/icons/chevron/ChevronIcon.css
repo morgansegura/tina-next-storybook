@@ -1,0 +1,17 @@
+.ChevronIcon {
+    transform-origin: 50%;
+    fill: var(--color-ebony);
+
+    &.ChevronIcon__up {
+        transform: rotate(-90deg);
+    }
+    &.ChevronIcon__right {
+        transform: rotate(0deg);
+    }
+    &.ChevronIcon__down {
+        transform: rotate(90deg);
+    }
+    &.ChevronIcon__left {
+        transform: rotate(180deg);
+    }
+}

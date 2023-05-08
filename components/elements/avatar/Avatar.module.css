@@ -1,0 +1,33 @@
+.Avatar {
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    background-color: var(--color-neutral-70);
+
+    &__sm {
+    }
+
+    &__md {
+        width: var(--size-4);
+        height: var(--size-4);
+    }
+
+    &__lg {
+    }
+
+    &__emboss {
+        &:before {
+            border: 2px solid rgba(25, 26, 27, 0.15);
+        }
+    }
+    &__user {
+        background-color: var(--color-ebony);
+
+        svg path {
+            fill: var(--color-white);
+        }
+    }
+}

@@ -57,11 +57,11 @@ export const Spacer = styled((as) => as)`
                     padding-bottom: ${sp[14]};
 
                     ${minwidth(screens.tablet)(`
-                        padding-bottom: ${sp[16]};
+                        padding-bottom: var(--size-8);
                     `)};
 
                     ${minwidth(screens.desktop.sm)(`
-                        padding-bottom: ${sp[16]};
+                        padding-bottom: var(--size-8);
                     `)};
 
                     ${minwidth(screens.desktop.base)(`
@@ -122,11 +122,11 @@ export const Spacer = styled((as) => as)`
                     padding-top: ${sp[14]};
 
                     ${minwidth(screens.tablet)(`
-                        padding-top: ${sp[16]};
+                        padding-top: var(--size-8);
                     `)};
 
                     ${minwidth(screens.desktop.sm)(`
-                        padding-top: ${sp[16]};
+                        padding-top: var(--size-8);
                     `)};
 
                     ${minwidth(screens.desktop.base)(`

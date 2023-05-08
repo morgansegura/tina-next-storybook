@@ -1,0 +1,49 @@
+.Drawer {
+    position: fixed;
+    transition: transform linear 0.3s;
+
+    &.Drawer__top {
+        top: 0;
+        right: 0;
+        left: 0;
+        transform-origin: 0 0;
+        transform: translateY(0);
+
+        &.Drawer__active {
+            transform: translateY(-100%);
+        }
+    }
+    &.Drawer__right {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        transform-origin: 0 0;
+        transform: translateX(0);
+
+        &.Drawer__active {
+            transform: translateX(100%);
+        }
+    }
+    &.Drawer__bottom {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transform-origin: 0 0;
+        transform: translateY(0);
+
+        &.Drawer__active {
+            transform: translateY(100%);
+        }
+    }
+    &.Drawer__left {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transform-origin: 0 0;
+        transform: translateX(0);
+
+        &.Drawer__active {
+            transform: translateX(-100%);
+        }
+    }
+}

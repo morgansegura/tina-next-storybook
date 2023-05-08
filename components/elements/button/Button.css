@@ -1,0 +1,95 @@
+.Button {
+    display: grid;
+    align-items: center;
+    cursor: pointer;
+
+    &__sm {
+        padding: var(--size-1) var(--size-2);
+    }
+    &__md {
+        padding: var(--size-2) var(--size-2-5);
+    }
+    &__lg {
+        padding: var(--size-2-5) var(--size-3);
+    }
+    &__xl {
+        padding: var(--size-3) var(--size-4);
+    }
+    &__2xl {
+        padding: var(--size-4);
+    }
+
+    &__light--minimal {
+        color: var(--color-white);
+        transition: color var(--duration-normal) var(--ease-out);
+
+        &:hover {
+            background-color: rgba(var(--color-white) var(--opacity-80));
+        }
+    }
+    &__dark--minimal {
+        color: var(--color-ebony);
+        transition: color var(--duration-normal) var(--ease-out);
+
+        &:hover {
+            background-color: rgba(var(--color-ebony) var(--opacity-80));
+        }
+    }
+
+    &__light--solid {
+        background-color: var(--color-white);
+        border: 2px solid transparent;
+        color: var(--color-ebony);
+        transition: background-color var(--duration-normal) var(--ease-out);
+
+        &:hover {
+            background-color: rgba(var(--color-white) var(--opacity-80));
+        }
+    }
+    &__dark--solid {
+        background-color: var(--color-ebony);
+        border: 2px solid transparent;
+        color: var(--color-white);
+        transition: background-color var(--duration-normal) var(--ease-out);
+
+        &:hover {
+            background-color: rgba(var(--color-ebony) var(--opacity-80));
+        }
+    }
+    &__light--ghost {
+        border: 2px solid var(--color-white);
+        color: var(--color-white);
+        transition: border-color var(--duration-normal) var(--ease-out);
+
+        &:hover {
+            border-color: rgba(var(--color-white) var(--opacity-80));
+        }
+    }
+    &__dark--ghost {
+        border: 2px solid var(--color-ebony);
+        color: var(--color-ebony);
+        transition: border-color var(--duration-normal) var(--ease-out);
+
+        &:hover {
+            border-color: rgba(var(--color-ebony) var(--opacity-80));
+        }
+    }
+
+    .Button__icon--left {
+        grid-template-columns: var(--size-2) 1fr;
+        column-gap: var(--size-2);
+    }
+    .Button__icon--right {
+        grid-template-columns: 1fr var(--size-2);
+        column-gap: var(--size-2);
+    }
+}
+
+.Button__label {
+    display: flex;
+}
+
+.Button__icon {
+    display: flex;
+    width: var(--size-2);
+}

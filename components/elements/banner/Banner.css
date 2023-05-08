@@ -1,0 +1,48 @@
+.Banner {
+    display: grid;
+    justify-content: center;
+    position: relative;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-none);
+
+    @media screen and (min-width: var(--min-width-laptop)) {
+        grid-template-columns: 898px 1fr;
+    }
+
+    &.Banner__footer {
+        .Banner__title {
+            background: linear-gradient(
+                    91.71deg,
+                    rgba(105, 180, 226, 0.4) 5.53%,
+                    rgba(215, 145, 216, 0.4) 93.91%
+                ),
+                #ffffff;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .Banner__selector {
+            font-size: var(--font-size-md);
+            line-height: var(--line-height-snug);
+            font-weight: var(--font-weight-medium);
+
+            padding-top: var(--size-2-5);
+            padding-bottom: var(--size-2-5);
+            flex: 1 0 auto;
+            margin-bottom: var(--size-7);
+            letter-spacing: var(--letter-spacing-tight);
+            border-radius: var(--size-2);
+            align-self: center;
+
+            @media screeen and (min-width: var(--min-width-desktop)) {
+                width: 220px;
+                height: 80px;
+                justify-self: center;
+            }
+        }
+    }
+}
+
+.Banner__title {
+}
+.Banner__selector {
+}

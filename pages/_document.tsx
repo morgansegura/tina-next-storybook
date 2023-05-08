@@ -1,5 +1,6 @@
 import Document, {
     DocumentContext,
+    DocumentInitialProps,
     Head,
     Html,
     Main,
@@ -10,37 +11,24 @@ import { ServerStyleSheet } from "styled-components";
 interface IDocument {}
 
 export default class MyDocument extends Document<IDocument> {
-    static async getInitialProps(ctx: DocumentContext) {
-        const sheet = new ServerStyleSheet();
-        const originalRenderPage = ctx.renderPage;
-        try {
-            ctx.renderPage = () =>
-                originalRenderPage({
-                    enhanceApp: (App) => (props: any) =>
-                        sheet.collectStyles(<App {...props} />),
-                });
+    static async getInitialProps(
+        ctx: DocumentContext
+    ): Promise<DocumentInitialProps> {
+        const initialProps = await Document.getInitialProps(ctx);
 
-            const initialProps = await Document.getInitialProps(ctx);
-
-            return {
-                ...initialProps,
-                // styles: [initialProps.styles],
-                styles: (
-                    <>
-                        {initialProps.styles}
-                        {/* {sheet.getStyleElement()} */}
-                    </>
-                ),
-            };
-        } finally {
-            sheet.seal();
-        }
+        return initialProps;
     }
 
     render() {
         return (
             <Html>
-                <Head />
+                <head>
+                    <Head />
+                    <link
+                        rel="stylesheet"
+                        href="/_next/static/style.css"
+                    />
+                </head>
 
                 <body>
                     <Main />

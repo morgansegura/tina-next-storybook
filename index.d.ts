@@ -13,5 +13,6 @@ declare module "react" {
         bgColor?: typeof colors | string;
         textColor?: typeof colors | string;
         variant?: any;
+        direction?: "top" | "right" | "bottom" | "left";
     }
 }
